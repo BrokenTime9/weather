@@ -1,0 +1,69 @@
+/*--------------------------basics down-----------------------------*/
+.heroPage{
+  height: 100vh;
+  width: 100vw;
+
+  background-color: #363840;
+
+ 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.heroContainer{
+  width: 40vw;
+  max-height: 55vh;
+
+  background-color: #41454a; 
+
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  outline:5px solid rgba(0,0,0,0.2);
+
+  overflow: hidden;
+}
+
+
+.heroInput{
+  width: 100%;
+  height: 10vh;
+  padding-left: 10%;
+  padding-bottom: 1%;
+  font-size:26px;
+  color:white;
+
+  background-color: #2f3236;
+  border: none;
+  border-radius:10px 10px 0 0;
+
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+.heroInput:focus{
+  outline:none;
+}
+
+/*-----------------------------------------------------searchResult divs-----------------------------------*/
+
+.searchResult{
+  border-radius: 7px;
+  padding: 10px;
+  margin: 5px;
+
+  font-size:16px;
+  color:white;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid rgb(64,69,74);
+}
+.searchResult:hover{
+  background-color: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+
+  
+}
+
