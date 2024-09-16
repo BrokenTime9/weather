@@ -13,7 +13,7 @@ function HomeSearch(){
 
   useEffect(() => {
     if(input !== ""){
-  fetch(`http://api.weatherapi.com/v1/search.json?key=${apiKey}&q=${input}`)
+  fetch(`https://api.weatherapi.com/v1/search.json?key=${apiKey}&q=${input}`)
     .then(response => response.json())
     .then(data => {
           setSearchResult(data);
