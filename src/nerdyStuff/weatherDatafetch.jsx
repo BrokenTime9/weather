@@ -12,7 +12,7 @@ export function Weather(){
   useEffect(() =>{
 
     if(location !== ""){
-      fetch(`https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${location}`)
+      fetch(`http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${location}`)
         .then(response  => response.json())
         .then((data) => {
           setWeather(data);
