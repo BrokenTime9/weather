@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { FaRegSun, FaSun, FaMoon, FaRegMoon } from "react-icons/fa6";
+import { FaSun, FaMoon } from "react-icons/fa6";
 import './weatherDatafetch.css';  
 import { useParams } from "react-router-dom";
 import {useNavigate} from 'react-router-dom';
@@ -7,8 +7,7 @@ import {useNavigate} from 'react-router-dom';
 export function Weather(){
   const {location} = useParams();
   const [weather, setWeather] = useState(null);
-  const apiKey = "c627827a75f149958c8150053240809";
-  const [isDay, setIsDay] = useState(1);
+  const apiKey = process.env.REACT_APP_WEATHER_API_KEY;
   const navigate = useNavigate();
 
   useEffect(() =>{
@@ -18,20 +17,19 @@ export function Weather(){
         .then(response  => response.json())
         .then((data) => {
           setWeather(data);
-          setIsDay(data.current.is_day);
         })
           .catch(error => console.error(error))
     }
     
     return;
     
-  },[location]);
+  },[apiKey, location]);
 
 
   if(weather !== null){
     
     const {name, region, country, lat, lon,localtime} = weather.location;
-    const {last_updated, temp_c, is_day, wind_mph, wind_dir, precip_mm, humidity, uv} = weather.current;
+    const { temp_c, is_day, wind_mph, wind_dir, precip_mm, humidity, uv} = weather.current;
     const { text } = weather.current.condition;
     const local = localtime.toString().slice(11,13);
     const handleClick = () => {
@@ -53,7 +51,7 @@ export function Weather(){
           <div className="time"><p>{localtime.toString().slice(11)
           }</p></div>
           <div className="circles">
-             { is_day == 1 ? <FaSun className="dayCircle" /> :<FaMoon className="nightCircle" />}
+             { is_day === 1 ? <FaSun className="dayCircle" /> :<FaMoon className="nightCircle" />}
           </div>
           <div className="resultDate">
 

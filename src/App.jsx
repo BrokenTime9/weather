@@ -8,7 +8,7 @@ function HomeSearch(){
   const inputRef = useRef(null);
   const [input, setInput] = useState("");
   const [searchResult, setSearchResult] = useState(null);
-  const apiKey = "c627827a75f149958c8150053240809";
+  const apiKey = process.env.REACT_APP_WEATHER_API_KEY;
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -21,7 +21,7 @@ function HomeSearch(){
     .catch(error => console.error(error))
     }
    return ; 
-  },[input]);
+  },[input,apiKey]);
 
   const handleChange = () => {
     setInput(inputRef.current.value);
