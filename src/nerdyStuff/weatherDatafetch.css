@@ -139,7 +139,7 @@
 }
 
 @media screen and (max-width: 768px) {
-  .time,.resultDate{
+  .resultDate{
     display: none;
   }
 
