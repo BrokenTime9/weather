@@ -137,14 +137,14 @@ function getYear(num){
 function getTimeOfTheDay(local){
   if(local >= 6 && local < 12) return "morning";
   if(local >= 12 && local < 18) return "afternoon";
-  if(local >= 18 && local < 21) return "evening";
+  if(local >= 17 && local < 21) return "evening";
   return "night";
 }
 
 function getTemp(temp){
   if(temp >= 30) return "hot";
-  if(temp >= 20 && temp < 30) return "warm";
-  if(temp >= 10 && temp < 20) return "mild";
+  if(temp >= 23 && temp < 30) return "warm";
+  if(temp >= 10 && temp < 23) return "mild";
   if(temp >= 0 && temp < 10) return "cool";
   return "cold";
 }
