@@ -2,12 +2,14 @@ import { useState, useEffect } from "react";
 import { FaRegSun, FaSun, FaMoon, FaRegMoon } from "react-icons/fa6";
 import './weatherDatafetch.css';  
 import { useParams } from "react-router-dom";
+import {useNavigate} from 'react-router-dom';
 
 export function Weather(){
   const {location} = useParams();
   const [weather, setWeather] = useState(null);
   const apiKey = "c627827a75f149958c8150053240809";
   const [isDay, setIsDay] = useState(1);
+  const navigate = useNavigate();
 
   useEffect(() =>{
 
@@ -32,6 +34,9 @@ export function Weather(){
     const {last_updated, temp_c, is_day, wind_mph, wind_dir, precip_mm, humidity, uv} = weather.current;
     const { text } = weather.current.condition;
     const local = localtime.toString().slice(11,13);
+    const handleClick = () => {
+      navigate('/');
+    }
     const style = {
       '--primary' : `${backgroundColor(local,temp_c).primary}`,
       '--secondary' : `${backgroundColor(local,temp_c).secondary}`,
@@ -42,20 +47,22 @@ export function Weather(){
       <div className="resultPage" style={style}>
         <div className="innerContainer">
         <div className="resultNav"> 
-          <div>Home</div>
-          <div><p>{localtime.toString().slice(11)
+          <div onClick={() => handleClick()}>Home</div>
+
+          <div className="resultForecast"></div>
+          <div className="time"><p>{localtime.toString().slice(11)
           }</p></div>
           <div className="circles">
-              
+             { is_day == 1 ? <FaSun className="dayCircle" /> :<FaMoon className="nightCircle" />}
           </div>
           <div className="resultDate">
+
             <p>{getDate(localtime)} {getMonth(localtime)} </p> 
             <div className="resultDateSub">
               <p> {getYear(localtime)}</p>
               <p>Date</p>
             </div> 
           </div>
-          <div className="resultForecast">Forecast</div>
         </div>
         <div className="midResult">
           <div className="resultText">
@@ -86,7 +93,6 @@ export function Weather(){
           </div>
         </div>
         <div>
-          <div className="resultHourForecast">Forecast</div>
         </div>
         </div>
       </div>

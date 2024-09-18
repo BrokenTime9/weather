@@ -52,7 +52,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  gap: 0.8rem;
+  gap: 3rem;
 }
 
 .resultTemp{
@@ -130,30 +130,17 @@
   color:var(--accent);
 }
 
-.circles, .dayCircle, .nightCircle{
-  /* border: 1px solid var(--accent); */
-  border-radius: 20px;
-}
-
-.nightCircle{
-  margin-right:0.4rem;
-  margin-left: 0.1rem;
-}
-
-.dayCircle{
-  margin-left:0.4rem;
-  margin-right: 0.1rem;
-}
-
 .nightCircle, .dayCircle{
-  height: 1.5rem;
-  width: 1.5rem;
-  margin-top: 0.2rem;
-  margin-bottom: 0.2rem;
-
-  background-repeat: no-repeat;
-  background-size: 1rem 1rem;
-  background-position: center;
-
+  height: 1.7rem;
+  width: 1.7rem;
+  padding: 0.2rem;
+  border-radius: 50%;
+ 
 }
 
+@media screen and (max-width: 768px) {
+  .time,.resultDate{
+    display: none;
+  }
+
+}
